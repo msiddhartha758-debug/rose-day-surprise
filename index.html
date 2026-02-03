@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rose Day Surprise 🌹</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 350px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .rose {
+      font-size: 50px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background: white;
+      color: #ff4f7b;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Happy Rose Day 🌹</h1>
+    <div class="rose">❤️</div>
+
+    <h2>Bidisha Mandal</h2>
+
+    <p>
+      This rose is not just a flower,<br>
+      it carries my feelings for you 💖
+    </p>
+
+    <button onclick="playMusic()">Play Music 🎵</button>
+    <button onclick="showSurprise()">Click for a Surprise 💌</button>
+
+    <div id="surprise" class="hidden">
+      <p style="margin-top:15px;">
+        I seriously ❤️ U and I am missing old caring Bidisha  
+        and her love towards me.
+      </p>
+
+      <p style="margin-top:10px; font-style: italic;">
+        যদি সত্যি জানতে চাও তোমাকে চাই তোমাকে চাই <br>
+        যদি মিথ্যে মানতে চাও তোমাকেই চাই
+      </p>
+
+      <p style="margin-top:10px;">— Siddhartha Mandal</p>
+    </div>
+  </div>
+
+  <!-- MUSIC -->
+  <audio id="song">
+    <source src="sei-tumi-aj-dure.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById("song").play();
+    }
+
+    function showSurprise() {
+      document.getElementById("surprise").classList.remove("hidden");
+      for (let i = 0; i < 25; i++) {
+        createHeart();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
