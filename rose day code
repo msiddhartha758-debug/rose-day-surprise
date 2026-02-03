@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rose Day Surprise 🌹</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  width: 90%;
+  max-width: 350px;
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #ff4d6d;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.heart {
+  position: fixed;
+  color: red;
+  font-size: 20px;
+  animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Happy Rose Day 🌹</h1>
+  <h2>Bidisha Mandal ❤️</h2>
+
+  <p>
+    This rose is not just a flower,<br>
+    it carries my feelings for you 💖
+  </p>
+
+  <p>
+    I seriously ❤️ U <br>
+    and I am missing old caring Bidisha<br>
+    and her love towards me.
+  </p>
+
+  <p>
+    যদি সত্যি জানতে চাও তোমাকেই চাই<br>
+    যদি মিথ্যে মানতে চাও তোমাকেই চাই
+  </p>
+
+  <p>— Siddhartha Mandal</p>
+
+  <button onclick="playMusic()">🎵 Play Music</button>
+</div>
+
+<!-- MUSIC -->
+<audio id="song">
+  <source src="sei-tumi-aj-dure.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic() {
+  document.getElementById("song").play();
+  createHearts();
+}
+
+function createHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }, 300);
+}
+</script>
+
+</body>
+</html>
